@@ -1,0 +1,53 @@
+# Laravel
+.env
+.env.*
+/public/storage
+/storage/*.key
+/vendor
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/framework/cache/*
+/storage/logs/*
+/bootstrap/cache/*
+
+# Docker
+docker/mysql/data/
+docker/mysql/data/*
+!.gitkeep
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+*.log
+*.sqlite
+
+# テスト関連
+.phpunit.result.cache
+.phpunit.cache
+
+# 一時ファイル
+touch
+id
+src/id
+src/-
+*.tmp
+
+# 不要なもの
+src/.env.testing
+docker/mysql/data/
+src/,
+src/id
+src/touch
+src/-
+
+# Docker MySQL data
+docker/mysql/data/
+
+# ゴミファイル
+src/id
+src/touch
+src/-
+src/.env.testing
+
+# 一時的に出てきた変なもの
+src/,

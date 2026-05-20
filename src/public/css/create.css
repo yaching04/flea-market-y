@@ -1,0 +1,121 @@
+/* 出品画面 */
+.sell-container {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.sell-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 28px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #555;
+    font-weight: 500;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.image-upload-area {
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    background: #fafafa;
+}
+
+.upload-btn {
+    display: inline-block;
+    background: #ff4d4d;
+    color: white;
+    padding: 12px 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.category-tag {
+    display: inline-flex;
+    align-items: center;
+    background: #f1f1f1;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
+}
+
+.category-tag:hover {
+    background: #e0e0e0;
+}
+
+.category-tag input[type="checkbox"] {
+    display: none;
+}
+
+.category-tag input[type="checkbox"]:checked+span {
+    background: #ff4d4d;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 30px;
+}
+
+.price-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.yen {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.sell-submit-btn {
+    width: 100%;
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 16px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.sell-submit-btn:hover {
+    background-color: #e63939;
+}

@@ -64,7 +64,7 @@ php artisan make:migration add_custom_columns_to_users_table --table=users
 
 ---
 
-**開発環境**
+# 3.開発環境
 
 - PHP 8.1
 

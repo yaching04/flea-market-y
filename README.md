@@ -66,12 +66,12 @@ php artisan make:migration add_custom_columns_to_users_table --table=users
 
 **開発環境**
 
--PHP 8.1
+- PHP 8.1
 
--Laravel 10.x
+- Laravel 10.x
 
--MySQL 8.0
+- MySQL 8.0
 
--Docker + Docker Compose
+- Docker + Docker Compose
 
--Stripe（決済テスト）
+- Stripe（決済テスト）

@@ -74,6 +74,43 @@ php artisan make:migration add_custom_columns_to_users_table --table=users
 
 - Stripe（決済テスト）
 
+---
+
+# 各画面のurl
+
+ログイン画面
+http://localhost/login
+
+会員登録画面
+http://localhost/register
+
+トップページ
+http://localhost/
+
+商品詳細ページ
+http://localhost/items/3
+
+購入画面
+http://localhost/purchase/3
+
+届け先変更画面
+http://localhost/purchase/3/address
+
+支払い用スクリプト
+https://checkout.stripe.com/c/pay/cs_test_a1P8lemeSHNCekFodM4x5JsYtfbALOuPeldcBuaddIThEFRgR7S25SKyFr#fidnandhYHdWcXxpYCc%2FJ2FgY2RwaXEnKSdicGRmZGhqaWBTZHdsZGtxJz8nZmprcXdqaScpJ2R1bE5gfCc%2FJ3VuWnFgdnFaMDRRSnJPYUZpaFxHMWxWdncyPWg8ZGN2fWJfNDddXX12Q319N01mSTZDbEZCdHFiVk1gRjJWUj1xTEJmfFFBMm1VZEYxNUk0U3E8dWxWbU43TmB%2FQ1Z%2FSnQ1NXUyNHRDS11VJyknY3dqaFZgd3Ngdyc%2FcXdwYCknZ2RmbmJ3anBrYUZqaWp3Jz8nJmNjY2NjYycpJ2lkfGpwcVF8dWAnPyd2bGtiaWBabHFgaCcpJ2BrZGdpYFVpZGZgbWppYWB3dic%2FcXdwYHgl
+
+購入完了画面
+http://localhost/checkout/success/3?session_id=cs_test_a1P8lemeSHNCekFodM4x5JsYtfbALOuPeldcBuaddIThEFRgR7S25SKyFr
+
+マイページ（購入した商品）
+http://localhost/mypage
+
+マイページ（出品した商品）
+http://localhost/mypage?page=sell
+
+プロフィール更新画面
+http://localhost/mypage/profile
+
   ---
   # ER図
 

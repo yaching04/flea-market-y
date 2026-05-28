@@ -12,7 +12,6 @@
 
     <form method="POST" action="{{ route('purchases.address.update', $item) }}">
     @csrf
-    {{-- @method('PUT') は削除 --}}
 
     <div class="form-group">
         <label>郵便番号</label>
@@ -34,7 +33,7 @@
             value="{{ old('building', auth()->user()->building ?? '') }}">
     </div>
 
-    <button type="submit" class="update-btn">この住所で確定する</button>
+    <button type="submit" class="update-btn">更新する</button>
 </form>
 
     <div class="back-link">

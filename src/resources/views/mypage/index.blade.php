@@ -9,16 +9,20 @@
     <div class="mypage-container">
 
         <!-- プロフィールヘッダー -->
-        <div class="profile-header">
-            <div class="profile-image">
-                @if (auth()->user()->profile_image)
-                    <img src="{{ asset(auth()->user()->profile_image) }}" alt="プロフィール画像">
-                @else
-                    <div class="default-avatar"></div>
-                @endif
+        <div class="user-info">
+            <div class="left-group">
+                <div class="profile-image">
+                    @if (auth()->user()->profile_image)
+                        <img src="{{ asset(auth()->user()->profile_image) }}" alt="プロフィール画像">
+                    @else
+                        <div class="default-avatar">
+                            {{ mb_substr(auth()->user()->name, 0, 1) }}
+                        </div>
+                    @endif
+                </div>
+                <div class="user-name">{{ auth()->user()->name }}</div>
             </div>
             <div class="profile-info">
-                <h2>{{ auth()->user()->name }}</h2>
                 <a href="{{ route('mypage.profile.edit') }}" class="edit-profile-btn">プロフィールを編集</a>
             </div>
         </div>
@@ -47,7 +51,6 @@
                             </div>
                             <div class="product-info">
                                 <p class="product-name">{{ $item->name }}</p>
-                                <p class="product-price">¥{{ number_format($item->price) }}</p>
                             </div>
                         </a>
                     </div>
@@ -64,7 +67,6 @@
                             </div>
                             <div class="product-info">
                                 <p class="product-name">{{ $item->name }}</p>
-                                <p class="product-price">¥{{ number_format($item->price) }}</p>
                             </div>
                         </a>
                     </div>

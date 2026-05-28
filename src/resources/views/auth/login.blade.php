@@ -8,32 +8,41 @@
 @section('content')
     <div class="login-container">
 
-        <h1 class="login-title">ログイン</h1>
+        <h1 class="login-title">
+            <div class="input-wrapper">
+                @error('login')
+                    <div class="login-error">{{ $message }}</div>
+                @enderror
+                ログイン
+            </div>
+        </h1>
+
+
 
         <form method="POST" action="{{ route('login') }}" novalidate>
             @csrf
 
-            @if ($errors->has('login'))
-                <p class="error-message">{{ $errors->first('login') }}</p>
-            @endif
-
             <div class="form-group">
                 <label>メールアドレス</label>
-                <input type="email" name="email" class="form-input" value="{{ old('email') }}" required autofocus>
-                @error('email')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
+                <div class="input-wrapper">
+                    <input type="email" name="email" class="form-input" value="{{ old('email') }}" required autofocus>
+                    @error('email')
+                        <div class="error-message">{{ $message }}</div>
+                    @enderror
+                </div>
             </div>
 
             <div class="form-group password-field">
                 <label>パスワード</label>
-                <div class="password-wrapper">
-                    <input type="password" name="password" id="password" class="form-input" required>
-                    <i class="toggle-password fa-regular fa-eye" id="togglePassword"></i>
+                <div class="input-wrapper">
+                    <div class="password-wrapper">
+                        <input type="password" name="password" id="password" class="form-input" required>
+                        <i class="toggle-password fa-regular fa-eye" id="togglePassword"></i>
+                    </div>
+                    @error('password')
+                        <div class="error-message">{{ $message }}</div>
+                    @enderror
                 </div>
-                @error('password')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
             </div>
 
             <button type="submit" class="login-btn">ログインする</button>
@@ -45,13 +54,12 @@
 
     </div>
 
+    <!-- スクリプトはそのまま -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-
             function setupToggle(inputId, toggleId) {
                 const input = document.getElementById(inputId);
                 const toggle = document.getElementById(toggleId);
-
                 if (!input || !toggle) return;
 
                 toggle.addEventListener('click', function() {
@@ -66,12 +74,7 @@
                     }
                 });
             }
-
-            // ログイン画面用
             setupToggle('password', 'togglePassword');
-
-            // 登録画面用
-            setupToggle('password_confirmation', 'togglePasswordConfirm');
         });
     </script>
 @endsection

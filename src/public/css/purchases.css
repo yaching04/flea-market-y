@@ -1,6 +1,8 @@
-/* 購入確認画面 */
+/* ============================================= */
+/* 購入確認画面全体 */
+/* ============================================= */
 .purchase-container {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 60px auto;
     padding: 40px;
     background: #fff;
@@ -14,16 +16,24 @@
     margin-bottom: 40px;
 }
 
-.purchase-main {
+/* ============================================= */
+/* メインコンテンツ */
+/* ============================================= */
+.purchase-content {
     display: flex;
-    gap: 60px;
-    margin-bottom: 50px;
+    gap: 80px;
+}
+
+/* 左半分：商品情報 + フォーム */
+.left-section {
+    flex: 1;
+    max-width: 520px;
 }
 
 .purchase-item {
-    flex: 1;
     display: flex;
     gap: 24px;
+    margin-bottom: 40px;
 }
 
 .purchase-item-image img {
@@ -34,39 +44,26 @@
 }
 
 .purchase-item-info h2 {
-    font-size: 22px;
+    font-size: 24px;
     margin-bottom: 8px;
 }
 
-.price {
-    font-size: 26px;
-    font-weight: 600;
+.purchase-item-info .price {
+    font-size: 28px;
+    font-weight: 700;
     color: #000;
 }
 
-.purchase-summary {
-    flex: 1;
-    background: #f9f9f9;
-    padding: 24px;
-    border-radius: 8px;
-    align-self: flex-start;
+/* フォーム部分 */
+.form-group {
+    margin-bottom: 32px;
 }
 
-.summary-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-.summary-table th,
-.summary-table td {
-    padding: 14px 0;
-    text-align: left;
-    border-bottom: 1px solid #eee;
-}
-
-.summary-table th {
-    width: 40%;
-    color: #666;
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 .form-select {
@@ -79,28 +76,84 @@
 
 .address-info {
     background: #f9f9f9;
-    padding: 16px;
+    padding: 20px;
     border-radius: 8px;
+    line-height: 1.6;
 }
 
-.change-address {
-    color: #0066ff;
-    text-decoration: none;
-    font-size: 14px;
+/* ============================================= */
+/* 右半分：まとめ表 + 購入ボタン */
+/* ============================================= */
+.right-section {
+    width: 380px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
+.purchase-summary {
+    background: #f9f9f9;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.summary-table th,
+.summary-table td {
+    padding: 16px 0;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-table th {
+    width: 45%;
+    color: #666;
+    font-weight: 500;
+}
+
+/* 購入ボタン */
 .purchase-btn {
     width: 100%;
     background-color: #ff4d4d;
     color: white;
     border: none;
     padding: 18px;
-    font-size: 18px;
+    font-size: 26px;
+    font-weight: 700;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 50px;           /* 下に寄せる */
 }
 
 .purchase-btn:hover {
     background-color: #e63939;
+}
+
+/* ============================================= */
+/* その他 */
+/* ============================================= */
+.change-address {
+    color: #0066ff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.change-address:hover {
+    text-decoration: underline;
+}
+
+.sold-badge-large,
+.sold-message {
+    text-align: center;
+}
+
+.error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 8px;
 }

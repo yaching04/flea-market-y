@@ -1,18 +1,17 @@
 /* ログイン画面 */
 .login-container {
-    max-width: 400px;
+    max-width: 680px;
     margin: 120px auto 80px;
     padding: 40px 30px;
     background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     text-align: center;
 }
 
 .login-title {
-    font-size: 28px;
+    font-size: 36px;
+    font-weight: bold;
     margin-bottom: 40px;
-    color: #333;
+    color: #000000;
 }
 
 .form-group {
@@ -23,8 +22,9 @@
 .form-group label {
     display: block;
     margin-bottom: 8px;
-    font-size: 14px;
-    color: #555;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000000;
 }
 
 .form-input {
@@ -37,11 +37,11 @@
 
 .login-btn {
     width: 100%;
-    background-color: #ff4d4d;
+    background-color: #FF5555;
     color: white;
     border: none;
-    padding: 16px;
-    font-size: 18px;
+    padding: 10px 0;
+    font-size: 20px;
     border-radius: 6px;
     cursor: pointer;
     margin-top: 10px;
@@ -87,8 +87,43 @@
     padding-right: 50px;
 }
 
-.error-message {
-    margin-top: 8px;
-    font-size: 14px;
-    color: #e63939;
+/* ====================== エラーメッセージ ====================== */
+
+/* 入力欄を相対位置指定 */
+.input-wrapper {
+    position: relative;
+    margin-bottom: 8px;
 }
+
+/* 吹き出しエラーメッセージ */
+.error-message {
+    position: absolute;
+    top: -42px;
+    right: 0;
+    /* 右寄りに変更 */
+    left: auto;
+    /* leftを解除 */
+    background-color: #ff5555;
+    color: white;
+    font-size: 15px;
+    padding: 5px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(255, 85, 85, 0.3);
+}
+
+.login-error {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ff5555;
+    color: white;
+    font-size: 15px;
+    padding: 5px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(255, 85, 85, 0.3);
+    }

@@ -10,23 +10,24 @@ class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => ['required', 'email'],
+        // バリデーション
+        $request->validate([
+            'email'    => ['required', 'email'],
             'password' => ['required'],
         ], [
-            'email.required' => 'メールアドレスを入力してください。',
-            'email.email' => '有効なメールアドレスを入力してください。',
+            'email.required'    => 'メールアドレスを入力してください。',
+            'email.email'       => '有効なメールアドレスを入力してください。',
             'password.required' => 'パスワードを入力してください。',
         ]);
 
-        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+        // 認証試行
+        if (Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
             $request->session()->regenerate();
-
-            // ログイン後は必ずトップページに飛ぶ
             return redirect()->route('items.index')
                             ->with('success', 'ログインしました！');
         }
 
+        // 認証失敗（メールまたはパスワードが間違っている場合）
         return back()->withErrors([
             'login' => 'ログイン情報が登録されていません。',
         ])->onlyInput('email');

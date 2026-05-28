@@ -14,39 +14,51 @@
         @csrf
 
         <!-- 商品画像 -->
-        <div class="form-group">
-            <label>商品画像</label>
-            <input type="file" name="image" id="item-image" accept="image/*" required>
+        <div class="image-upload-group">
+            <label for="item-image">商品画像</label>
 
-            <div class="image-preview" id="image-preview" style="margin-top: 15px; display: none;">
-                <img id="preview" style="max-width: 300px; border-radius: 8px;">
+            <!-- ① アップロードボタンエリア -->
+            <div class="image-area" id="upload-area">
+                <label for="item-image" class="upload-btn">画像を選択する</label>
+                <input type="file" name="image" id="item-image" accept="image/*" required class="image-input">
+            </div>
+
+            <!-- ② プレビューエリア -->
+            <div class="image-preview" id="image-preview" style="display: none;">
+                <img id="preview" style="max-width: 100%; border-radius: 8px;">
             </div>
         </div>
 
-        <!-- カテゴリー -->
+        <!-- 商品の詳細 -->
         <div class="form-group">
-            <label>カテゴリー</label>
-            <div class="category-tags">
-                @foreach($categories as $category)
+            <h2 class="form-title">商品の詳細</h2>
+
+            <!-- カテゴリー -->
+            <div class="category-area">
+                <label>カテゴリー</label>
+                <div class="category-tags">
+                    @foreach($categories as $category)
                     <label class="category-tag">
-                        <input type="checkbox" name="categories[]" value="{{ $category->id }}" {{ in_array($category->id, old('categories', [])) ? 'checked' : '' }}>
+                        <input type="checkbox" name="categories[]" value="{{ $category->id }}"
+                            {{ in_array($category->id, old('categories', [])) ? 'checked' : '' }}>
                         <span>{{ $category->name }}</span>
                     </label>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-        </div>
 
-        <!-- 商品の状態 -->
-        <div class="form-group">
+            <!-- 商品の状態 -->
             <label>商品の状態</label>
             <select name="condition_id" class="form-select" required>
-                <option value="">選択してください</option>
+                <option value="" disabled selected hidden>選択してください</option>
                 @foreach($conditions as $condition)
-                    <option value="{{ $condition->id }}">{{ $condition->name }}</option>
+                    <option value="{{ $condition->id }}" class="condition-option">{{ $condition->name }}</option>
                 @endforeach
             </select>
         </div>
 
+
+        <h2 class="form-title">商品名と説明</h2>
         <!-- 商品名 -->
         <div class="form-group">
             <label>商品名</label>
@@ -69,8 +81,10 @@
         <div class="form-group">
             <label>販売価格</label>
             <div class="price-input">
-                <span class="yen">¥</span>
-                <input type="number" name="price" class="form-input" value="{{ old('price') }}" required>
+                <div class="yen-wrapper">
+                    <span class="yen">¥</span>
+                    <input type="number" name="price" class="form-input price-field" value="{{ old('price') }}" required>
+                </div>
             </div>
         </div>
 
@@ -82,20 +96,30 @@
 @endsection
 
 @section('js')
-
 <script>
-document.getElementById('item-image').addEventListener('change', function(e) {
+// ==================== 商品画像 プレビュー ====================
+const fileInput = document.getElementById('item-image');
+const uploadArea = document.getElementById('upload-area');
+const previewArea = document.getElementById('image-preview');
+const previewImg = document.getElementById('preview');
+const itemImageLabel = document.querySelector('label[for="item-image"]');
+
+fileInput.addEventListener('change', function(e) {
     const file = e.target.files[0];
     if (file) {
         const reader = new FileReader();
         reader.onload = function(event) {
-            const preview = document.getElementById('preview');
-            preview.src = event.target.result;
-            document.getElementById('image-preview').style.display = 'block';
+            previewImg.src = event.target.result;
+            previewArea.style.display = 'block';
+            uploadArea.style.display = 'none';
+            if (itemImageLabel) itemImageLabel.style.display = 'none';
         };
         reader.readAsDataURL(file);
     }
 });
-</script>
 
+previewImg.addEventListener('click', function() {
+    fileInput.click();
+});
+</script>
 @endsection

@@ -1,46 +1,45 @@
 /* 住所変更画面 */
 .address-container {
-    max-width: 500px;
-    margin: 80px auto;
-    padding: 40px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    max-width: 680px;
+    margin: 20px auto;
 }
 
 .address-title {
-    font-size: 28px;
+    font-size: 36px;
+    font-weight: 700px;
     text-align: center;
-    margin-bottom: 40px;
-    color: #333;
+    margin-bottom: 70px;
+    color: #000;
 }
 
 .form-group {
-    margin-bottom: 28px;
+    margin-bottom: 50px;
 }
 
 .form-group label {
     display: block;
     margin-bottom: 10px;
-    font-size: 15px;
-    color: #555;
+    font-size: 24px;
+    font-weight: 700;
+    color: #000;
 }
 
 .form-input {
     width: 100%;
     padding: 14px 16px;
-    border: 1px solid #ddd;
+    border: 1px solid #5F5F5F;
     border-radius: 8px;
     font-size: 16px;
 }
 
 .update-btn {
     width: 100%;
-    background-color: #ff4d4d;
+    background-color: #ff5555;
     color: white;
     border: none;
-    padding: 16px;
-    font-size: 18px;
+    padding: 10px;
+    font-size: 26px;
+    font-weight: 700;
     border-radius: 8px;
     cursor: pointer;
     margin-top: 20px;

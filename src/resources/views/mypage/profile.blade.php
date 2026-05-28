@@ -11,13 +11,12 @@
     <h1 class="profile-edit-title">プロフィール設定</h1>
 
     <form method="POST" action="{{ route('mypage.profile.update') }}" enctype="multipart/form-data">
-    @csrf
-    @method('PUT')
+        @csrf
+        @method('PUT')
 
-    <!-- プロフィール画像 -->
-    <!-- プロフィール画像 -->
-    <div class="form-group image-group">
-        <div class="current-image">
+        <!-- プロフィール画像 -->
+        <div class="form-group image-group">
+            <div class="current-image">
             <img id="preview-image" src="{{ auth()->user()->profile_image ? asset(auth()->user()->profile_image) : 'https://via.placeholder.com/150x150/eeeeee/999999?text=No+Image' }}" alt="プレビュー">
         </div>
 
@@ -25,36 +24,40 @@
         <input type="file" name="profile_image" id="profile_image" accept="image/*" class="image-input">
     </div>
 
-    <!-- ユーザー名 -->
-    <div class="form-group">
-        <label>ユーザー名</label>
-        <input type="text" name="name" class="form-input"
-            value="{{ old('name', auth()->user()->name) }}" required>
-    </div>
 
-    <!-- 郵便番号 -->
-    <div class="form-group">
-        <label>郵便番号</label>
-        <input type="text" name="postal_code" class="form-input"
+    <div class="form-groups">
+        <!-- ユーザー名 -->
+        <div class="form-group">
+            <label>ユーザー名</label>
+            <input type="text" name="name" class="form-input"
+            value="{{ old('name', auth()->user()->name) }}" required>
+        </div>
+
+        <!-- 郵便番号 -->
+        <div class="form-group">
+            <label>郵便番号</label>
+            <input type="text" name="postal_code" class="form-input"
             value="{{ old('postal_code', auth()->user()->postal_code) }}"
             placeholder="123-4567" required>
-    </div>
+        </div>
 
-    <!-- 住所 -->
-    <div class="form-group">
-        <label>住所</label>
-        <input type="text" name="address" class="form-input"
+        <!-- 住所 -->
+        <div class="form-group">
+            <label>住所</label>
+            <input type="text" name="address" class="form-input"
             value="{{ old('address', auth()->user()->address) }}" required>
-    </div>
+        </div>
 
-    <!-- 建物名 -->
-    <div class="form-group">
-        <label>建物名（任意）</label>
-        <input type="text" name="building" class="form-input"
+        <!-- 建物名 -->
+        <div class="form-group">
+            <label>建物名（任意）</label>
+            <input type="text" name="building" class="form-input"
             value="{{ old('building', auth()->user()->building) }}">
+        </div>
+
+        <button type="submit" class="update-btn">更新する</button>
     </div>
 
-    <button type="submit" class="update-btn">更新する</button>
 </form>
 
 </div>

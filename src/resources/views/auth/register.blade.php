@@ -8,54 +8,73 @@
 @section('content')
     <div class="register-container">
 
-        <h1 class="register-title">会員登録</h1>
+        <!-- 1. フォームコンテンツ部分 -->
 
         <form method="POST" action="{{ route('register') }}" novalidate>
-            @csrf
+            <div class="auth-content">
+                <h1 class="register-title">会員登録</h1>
 
-            <div class="form-group">
-                <label>ユーザー名</label>
-                <input type="text" name="name" class="form-input" value="{{ old('name') }}" required autofocus>
-                @error('name')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="form-group">
-                <label>メールアドレス</label>
-                <input type="email" name="email" class="form-input" value="{{ old('email') }}" required>
-                @error('email')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
-            </div>
-
-            <div class="form-group password-field">
-                <label>パスワード</label>
-                <div class="password-wrapper">
-                    <input type="password" name="password" id="password" class="form-input" required>
-                    <i class="toggle-password fa-regular fa-eye" id="togglePassword"></i>
+                @csrf
+                <!-- ユーザー名 -->
+                <div class="form-group">
+                    <label>ユーザー名</label>
+                    <div class="input-wrapper">
+                        <input type="text" name="name" class="form-input" value="{{ old('name') }}" required autofocus>
+                        @error('name')
+                            <div class="error-message">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
-                @error('password')
-                    <p class="error-message">{{ $message }}</p>
-                @enderror
-            </div>
 
-            <div class="form-group password-field">
-                <label>確認用パスワード</label>
-                <div class="password-wrapper">
-                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-input"
-                        required>
-                    <i class="toggle-password fa-regular fa-eye" id="togglePasswordConfirm"></i>
+                <!-- メールアドレス -->
+                <div class="form-group">
+                    <label>メールアドレス</label>
+                    <div class="input-wrapper">
+                        <input type="email" name="email" class="form-input" placeholder="example.@gmail.com" value="{{ old('email') }}" required>
+                        @error('email')
+                            <div class="error-message">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
-                @if ($errors->has('password_confirmation') || $errors->has('password'))
-                    <p class="error-message">
-                        {{ $errors->first('password_confirmation') ?: $errors->first('password') }}</p>
-                @endif
+
+                <!-- パスワード -->
+                <div class="form-group password-field">
+                    <label>パスワード</label>
+                    <div class="input-wrapper">
+                        <div class="password-wrapper">
+                            <input type="password" name="password" id="password" class="form-input" required>
+                            <i class="toggle-password fa-regular fa-eye" id="togglePassword"></i>
+                        </div>
+                        @error('password')
+                            <div class="error-message">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
+
+                <!-- 確認用パスワード -->
+                <div class="form-group password-field">
+                    <label>確認用パスワード</label>
+                    <div class="input-wrapper">
+                        <div class="password-wrapper">
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-input" required>
+                            <i class="toggle-password fa-regular fa-eye" id="togglePasswordConfirm"></i>
+                        </div>
+                        @error('password_confirmation')
+                            <div class="error-message">{{ $message }}</div>
+                        @enderror
+                    </div>
+                </div>
             </div>
 
-            <button type="submit" class="register-btn">登録する</button>
+                <!-- 登録ボタン -->
+                <div class="register-button">
+                    <button type="submit" class="register-btn">登録する</button>
+                </div>
+
         </form>
+    </div>
 
+        <!-- ログインリンク -->
         <div class="login-link">
             <a href="{{ route('login') }}">ログインはこちら</a>
         </div>

@@ -73,3 +73,9 @@ php artisan make:migration add_custom_columns_to_users_table --table=users
 - Docker + Docker Compose
 
 - Stripe（決済テスト）
+
+  ---
+  # ER図
+
+  <img width="943" height="779" alt="Screenshot 2026-03-23 171002" src="https://github.com/user-attachments/assets/68357c36-1e48-455e-a5b5-55451dc5eea2" />
+

@@ -2,16 +2,18 @@
 
 # coachtech フリマアプリ
 
-フリマアプリ作成
+**フリマアプリ作成**
 
-環境構築
+
+**環境構築**
 cd coachtech/laravel
 
 git clone git@github.com:Estra-Coachtech/laravel-docker-template.git
 
 mv laravel-docker-template flea-market
 
-GutHubで新しいリモートリポジトリ作成「flea-market」
+
+**GutHubで新しいリモートリポジトリ作成「flea-market」**
 
 cd flea-market
 
@@ -25,31 +27,32 @@ git commit -m "リモートリポジトリの変更"
 
 git push origin main
 
-Dockerの設定
+
+**Dockerの設定**
 
 docker-compose up -d --build
 
-Laravel のパッケージのインストール
+**Laravel のパッケージのインストール**
 
 docker-compose exec php bash
 
 composer install
 
-.envファイルの作成・修正
+**.envファイルの作成・修正**
 
 cp .env.example .env
 
-マイグレーション作成
+**マイグレーション作成**
 
 php artisan make:model Condition -m
 
 php artisan make:model Category -m
 
-# 2. メインのテーブル（コントローラー必要）
+**# 2. メインのテーブル（コントローラー必要）**
 
 php artisan make:model Item -mcr
 
-# 3. 関連テーブル（コントローラー不要なものが多い）
+**# 3. 関連テーブル（コントローラー不要なものが多い）**
 
 php artisan make:model Like -m
 
@@ -59,11 +62,12 @@ php artisan make:model Purchase -mcr
 
 php artisan make:model ItemCategory -m
 
-# 4. users拡張（マイグレーションのみ）
+****# 4. users拡張（マイグレーションのみ）****
 
 php artisan make:migration add_custom_columns_to_users_table --table=users
 
-開発環境
+
+**開発環境**
 
 PHP 8.1
 

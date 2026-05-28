@@ -49,11 +49,11 @@ php artisan make:model Condition -m
 
 php artisan make:model Category -m
 
-**# 2. メインのテーブル（コントローラー必要）**
+# 2. メインのテーブル（コントローラー必要)
 
 php artisan make:model Item -mcr
 
-**# 3. 関連テーブル（コントローラー不要なものが多い）**
+# 3. 関連テーブル（コントローラー不要なものが多い）
 
 php artisan make:model Like -m
 
@@ -63,7 +63,7 @@ php artisan make:model Purchase -mcr
 
 php artisan make:model ItemCategory -m
 
-****# 4. users拡張（マイグレーションのみ）****
+# 4. users拡張（マイグレーションのみ）
 
 php artisan make:migration add_custom_columns_to_users_table --table=users
 

@@ -43,6 +43,8 @@ composer install
 
 cp .env.example .env
 
+---
+
 # 2.マイグレーション作成
 
 php artisan make:model Condition -m
